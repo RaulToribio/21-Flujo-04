@@ -1,0 +1,254 @@
+[
+    {
+        "id": "50079ff9294244d8",
+        "type": "tab",
+        "label": "Flujo 04",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ced4f46ed9a8f95e",
+        "type": "mqtt in",
+        "z": "50079ff9294244d8",
+        "name": "",
+        "topic": "codigoIoT/G8/mosquitto/msg",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "24e54ec71810eb37",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 40,
+        "wires": [
+            [
+                "96770c11c890e625",
+                "1dcc18d97a33e8a0"
+            ]
+        ]
+    },
+    {
+        "id": "96770c11c890e625",
+        "type": "json",
+        "z": "50079ff9294244d8",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 410,
+        "y": 40,
+        "wires": [
+            [
+                "bbe98d9584bae8fa",
+                "d9e80edf58deb2d2"
+            ]
+        ]
+    },
+    {
+        "id": "bbe98d9584bae8fa",
+        "type": "function",
+        "z": "50079ff9294244d8",
+        "name": "Temperatura",
+        "func": "msg.topic = msg.payload.id;\nmsg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 40,
+        "wires": [
+            [
+                "460e3461e660fd82",
+                "5264ea9e169a570a"
+            ]
+        ]
+    },
+    {
+        "id": "d9e80edf58deb2d2",
+        "type": "debug",
+        "z": "50079ff9294244d8",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "85fb6537b516d534",
+        "type": "inject",
+        "z": "50079ff9294244d8",
+        "name": "ID y Temperatura",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"Raul Toribio\",\"temp\":25.5}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "6fa6a4cd6009df32"
+            ]
+        ]
+    },
+    {
+        "id": "6fa6a4cd6009df32",
+        "type": "mqtt out",
+        "z": "50079ff9294244d8",
+        "name": "",
+        "topic": "codigoIoT/G8/mosquitto/msg",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "24e54ec71810eb37",
+        "x": 400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "460e3461e660fd82",
+        "type": "ui_chart",
+        "z": "50079ff9294244d8",
+        "name": "",
+        "group": "20433bf427bb1ba2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Gráfica de Temperatura",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "20",
+        "ymax": "30",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1dcc18d97a33e8a0",
+        "type": "debug",
+        "z": "50079ff9294244d8",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5264ea9e169a570a",
+        "type": "debug",
+        "z": "50079ff9294244d8",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "24e54ec71810eb37",
+        "type": "mqtt-broker",
+        "name": "Broker",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "20433bf427bb1ba2",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "438ebfb333a2533a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "438ebfb333a2533a",
+        "type": "ui_tab",
+        "name": "Flujo 04",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]

@@ -28,7 +28,7 @@ El host en este caso no será localhost debido a que deseamos recibir informaci�
 
 Flujo 04 - Node-RED.
 
-El objetivo de este ejercicio en Node-RED es poder visualizar una gráfica de tipo “Gauge” la temperatura y el nombre de todas las personas que publiquen el el tema “codigoIoT/G8/mosquitto/msg”.
+El objetivo de este ejercicio en Node-RED es poder visualizar una gráfica de tipo “Chart” la temperatura y el nombre de todas las personas que publiquen el el tema “codigoIoT/G8/mosquitto/msg”.
 
 ![https://raw.githubusercontent.com/RaulToribio/21-Flujo-04/main/Im%C3%A1genes/Flujo%2004%20(5).png](https://raw.githubusercontent.com/RaulToribio/21-Flujo-04/main/Im%C3%A1genes/Flujo%2004%20(5).png)
 

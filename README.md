@@ -1,5 +1,3 @@
-# 21-Flujo-04
-
 # Introducción
 
 Node-RED es una plataforma de código abierto basada en Node.js para desarrollar aplicaciones IoT y automatización del hogar. Es una herramienta visual de programación, lo que significa que los desarrolladores pueden crear flujos de trabajo utilizando bloques de construcción en lugar de escribir código. Los bloques se conectan entre sí para crear un flujo de trabajo, y los datos fluyen entre los bloques a medida que se ejecuta el flujo.
